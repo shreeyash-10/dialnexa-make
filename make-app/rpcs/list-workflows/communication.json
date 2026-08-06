@@ -6,7 +6,7 @@
     "limit": 100
   },
   "response": {
-    "iterate": "{{body.data}}",
+    "iterate": "{{body.data.data}}",
     "output": {
       "label": "{{ifempty(item.title, item.id)}}",
       "value": "{{item.id}}"

@@ -43,9 +43,9 @@ Legend:
 ### Pagination is not uniform
 
 - Calls return a root array with no pagination metadata and document a maximum page size of 200. The connector requests 200 and advances while the previous page is full.
-- Batch calls return `items` plus top-level `total`, `page`, and `limit`.
+- Batch calls return a root array. A live authenticated check on 2026-08-06 confirmed the documented `items`/`total`/`page`/`limit` envelope is not present, so the connector paginates while the previous 100-item page is full.
 - Workflows return `data` plus `meta.currentPage` and `meta.totalPages`.
-- Agents return the complete list with no server pagination; the Make result is still bounded by a user-facing limit.
+- Agents return their collection at `data.agents` with no server pagination; the Make result is bounded by a user-facing limit.
 
 ### Error and retry behavior
 

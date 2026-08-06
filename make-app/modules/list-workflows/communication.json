@@ -8,7 +8,7 @@
     "limit": 100
   },
   "response": {
-    "iterate": "{{body.data}}",
+    "iterate": "{{body.data.data}}",
     "output": "{{item}}",
     "limit": "{{parameters.limit}}"
   },
@@ -16,6 +16,6 @@
     "qs": {
       "page": "{{pagination.page}}"
     },
-    "condition": "{{body.meta.currentPage < body.meta.totalPages}}"
+    "condition": "{{body.data.meta.currentPage < body.data.meta.totalPages}}"
   }
 }
