@@ -5,7 +5,7 @@
     "sortOrder": "{{parameters.sortOrder}}",
     "sortBy": "{{parameters.sortBy}}",
     "page": 1,
-    "limit": 100
+    "limit": "{{parameters.pageSize}}"
   },
   "response": {
     "iterate": "{{body.data.data}}",

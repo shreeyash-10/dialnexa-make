@@ -22,12 +22,13 @@ Use these values when creating the custom app in Make:
 | Setting | Value |
 | --- | --- |
 | App name | DialNexa |
-| Theme | `#6C3CF0` (replace with the official brand color if different) |
+| Theme | `#14003D` |
+| Accent reference | `#7C3AED` |
 | Base URL | `https://api.dialnexa.com` |
 | API documentation | `https://dialnexa.com/docs/api-reference/introduction` |
 | Service URL | `https://dialnexa.com` |
 
-Before review, replace the placeholder theme value and add the official square logo described in [assets/README.md](assets/README.md).
+The theme values above were verified against DialNexa's official website on 2026-08-06. The Make app already uses the official square waveform artwork; keep a repository copy of that authorized asset as described in [assets/README.md](assets/README.md).
 
 ## Build order in Make
 

@@ -24,6 +24,15 @@
     "advanced": true
   },
   {
+    "name": "pageSize",
+    "type": "uinteger",
+    "label": "API page size",
+    "help": "Number of workflows requested per API page. Lower this value when testing pagination.",
+    "default": 100,
+    "required": true,
+    "advanced": true
+  },
+  {
     "name": "limit",
     "type": "uinteger",
     "label": "Limit",

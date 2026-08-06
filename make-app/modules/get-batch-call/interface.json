@@ -5,9 +5,9 @@
     "label": "Call logs"
   },
   {
-    "name": "total",
+    "name": "returnedCount",
     "type": "number",
-    "label": "Total"
+    "label": "Returned call-log count"
   },
   {
     "name": "page",
@@ -18,10 +18,5 @@
     "name": "limit",
     "type": "number",
     "label": "Page size"
-  },
-  {
-    "name": "totalPages",
-    "type": "number",
-    "label": "Total pages"
   }
 ]

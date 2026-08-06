@@ -8,6 +8,11 @@
     "limit": "{{parameters.pageSize}}"
   },
   "response": {
-    "output": "{{body}}"
+    "output": {
+      "callLogs": "{{body}}",
+      "returnedCount": "{{length(body)}}",
+      "page": "{{parameters.page}}",
+      "limit": "{{parameters.pageSize}}"
+    }
   }
 }
