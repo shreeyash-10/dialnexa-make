@@ -1,0 +1,7 @@
+{
+  "name": "makeAnApiCall",
+  "label": "Make an API call",
+  "description": "Performs an arbitrary authorized API call.",
+  "type": "universal",
+  "connection": "dialnexaApiKey"
+}

@@ -1,0 +1,18 @@
+{
+  "url": "/v1/user-webhooks",
+  "method": "POST",
+  "type": "json",
+  "body": {
+    "url": "{{webhook.url}}",
+    "events": [
+      "{{parameters.event}}"
+    ],
+    "is_active": true,
+    "secret": "{{sha256(connection.apiKey + ':' + webhook.id)}}"
+  },
+  "response": {
+    "data": {
+      "externalHookId": "{{ifempty(body.webhook.id, body.id)}}"
+    }
+  }
+}

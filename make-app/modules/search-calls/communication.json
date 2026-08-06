@@ -1,0 +1,32 @@
+{
+  "url": "/v1/calls",
+  "method": "GET",
+  "qs": {
+    "agent_id": "{{parameters.agentId}}",
+    "call_id": "{{parameters.callId}}",
+    "batch_call_id": "{{parameters.batchCallId}}",
+    "from": "{{parameters.fromNumber}}",
+    "to": "{{parameters.toNumber}}",
+    "type": "{{parameters.callType}}",
+    "call_direction": "{{parameters.callDirection}}",
+    "sentiment": "{{parameters.sentiment}}",
+    "status": "{{parameters.status}}",
+    "start_date": "{{parameters.startDate}}",
+    "end_date": "{{parameters.endDate}}",
+    "end_reason": "{{parameters.endReason}}",
+    "created_at": "{{parameters.createdAtSort}}",
+    "page": 1,
+    "limit": 200
+  },
+  "response": {
+    "iterate": "{{body}}",
+    "output": "{{item}}",
+    "limit": "{{parameters.limit}}"
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{length(body) == 200}}"
+  }
+}

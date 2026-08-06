@@ -1,0 +1,16 @@
+{
+  "id": "batch_abc123",
+  "title": "Q3 follow-up batch",
+  "status": "waiting",
+  "total_records": 250,
+  "createdAt": "2026-07-03T10:30:00.000Z",
+  "total_lead_count": 250,
+  "sent_lead_count": 240,
+  "picked_up_lead_count": 120,
+  "number_of_retries": 2,
+  "first_retry_count": 80,
+  "second_retry_count": 25,
+  "third_retry_count": 0,
+  "fourth_retry_count": 0,
+  "attempt_stages": []
+}

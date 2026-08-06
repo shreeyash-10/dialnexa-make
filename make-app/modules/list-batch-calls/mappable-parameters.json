@@ -1,0 +1,16 @@
+[
+  {
+    "name": "status",
+    "type": "text",
+    "label": "Status",
+    "help": "Filter by one status or comma-separate multiple statuses: `draft`, `waiting`, `scheduled`, `running`, `paused`, `completed`, `cancelled`, `deleted`, or `active`."
+  },
+  {
+    "name": "limit",
+    "type": "uinteger",
+    "label": "Limit",
+    "help": "Maximum number of results to return and work with during one execution cycle.",
+    "default": 20,
+    "required": true
+  }
+]

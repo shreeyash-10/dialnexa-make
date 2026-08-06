@@ -1,0 +1,17 @@
+{
+  "baseUrl": "https://api.dialnexa.com",
+  "headers": {
+    "Authorization": "Bearer {{connection.apiKey}}",
+    "Accept": "application/json"
+  },
+  "response": {
+    "error": {
+      "message": "[{{statusCode}}] {{ifempty(body.message, body.error)}}"
+    }
+  },
+  "log": {
+    "sanitize": [
+      "request.headers.authorization"
+    ]
+  }
+}

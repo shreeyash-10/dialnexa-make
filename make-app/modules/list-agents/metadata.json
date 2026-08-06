@@ -1,0 +1,7 @@
+{
+  "name": "listAgents",
+  "label": "List agents",
+  "description": "Returns AI voice agents available in the connected DialNexa workspace.",
+  "type": "search",
+  "connection": "dialnexaApiKey"
+}

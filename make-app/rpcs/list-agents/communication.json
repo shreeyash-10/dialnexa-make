@@ -1,0 +1,12 @@
+{
+  "url": "/v1/agents",
+  "method": "GET",
+  "response": {
+    "iterate": "{{body.agents}}",
+    "output": {
+      "label": "{{ifempty(item.current_version.title, item.id)}}",
+      "value": "{{item.id}}"
+    },
+    "limit": 100
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "id",
+    "type": "text",
+    "label": "Batch call ID"
+  },
+  {
+    "name": "title",
+    "type": "text",
+    "label": "Title"
+  },
+  {
+    "name": "total_records",
+    "type": "number",
+    "label": "Total records"
+  },
+  {
+    "name": "status",
+    "type": "text",
+    "label": "Status"
+  },
+  {
+    "name": "from_number",
+    "type": "text",
+    "label": "From number"
+  },
+  {
+    "name": "warning",
+    "type": "any",
+    "label": "Warning"
+  }
+]

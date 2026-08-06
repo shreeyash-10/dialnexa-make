@@ -1,0 +1,7 @@
+{
+  "name": "listBatchCalls",
+  "label": "List batch calls",
+  "description": "Returns batch call jobs with lifecycle status and progress totals.",
+  "type": "search",
+  "connection": "dialnexaApiKey"
+}

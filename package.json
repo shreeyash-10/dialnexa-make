@@ -1,0 +1,9 @@
+{
+  "name": "dialnexa-make-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Source-of-truth components and review runbook for the DialNexa Make app.",
+  "scripts": {
+    "validate": "node scripts/validate.mjs"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "call_id": "call_abc123",
+  "status": "completed",
+  "sentiment": "positive",
+  "summary": "The agent confirmed the appointment.",
+  "transcript": "Agent: Hello. Customer: I would like to confirm.",
+  "extracted_data": {
+    "intent": "book_appointment"
+  },
+  "duration": 120,
+  "recording_url": "https://example.com/recording.mp3",
+  "agent_id": "agent_abc123",
+  "metadata": {
+    "source": "make"
+  }
+}

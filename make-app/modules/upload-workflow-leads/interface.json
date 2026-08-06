@@ -1,0 +1,22 @@
+[
+  {
+    "name": "statusCode",
+    "type": "number",
+    "label": "Status code"
+  },
+  {
+    "name": "message",
+    "type": "text",
+    "label": "Message"
+  },
+  {
+    "name": "data",
+    "type": "any",
+    "label": "Created leads"
+  },
+  {
+    "name": "count",
+    "type": "number",
+    "label": "Created lead count"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "url": "/v1/agents",
+  "method": "GET",
+  "response": {
+    "iterate": "{{body.agents}}",
+    "output": "{{item}}",
+    "limit": "{{parameters.limit}}"
+  }
+}

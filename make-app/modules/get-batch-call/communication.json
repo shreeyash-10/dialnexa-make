@@ -1,0 +1,13 @@
+{
+  "url": "/v1/batch-calls/{{parameters.id}}",
+  "method": "GET",
+  "qs": {
+    "status": "{{parameters.status}}",
+    "sentiment": "{{parameters.sentiment}}",
+    "page": "{{parameters.page}}",
+    "limit": "{{parameters.pageSize}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

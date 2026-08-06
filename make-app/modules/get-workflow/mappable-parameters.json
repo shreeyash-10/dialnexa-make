@@ -1,0 +1,9 @@
+[
+  {
+    "name": "id",
+    "type": "select",
+    "label": "Workflow",
+    "options": "rpc://listWorkflows",
+    "required": true
+  }
+]

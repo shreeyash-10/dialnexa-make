@@ -1,0 +1,72 @@
+[
+  {
+    "name": "id",
+    "type": "text",
+    "label": "Batch call ID"
+  },
+  {
+    "name": "title",
+    "type": "text",
+    "label": "Title"
+  },
+  {
+    "name": "status",
+    "type": "text",
+    "label": "Status"
+  },
+  {
+    "name": "total_records",
+    "type": "number",
+    "label": "Total records"
+  },
+  {
+    "name": "createdAt",
+    "type": "date",
+    "label": "Created at"
+  },
+  {
+    "name": "total_lead_count",
+    "type": "number",
+    "label": "Total lead count"
+  },
+  {
+    "name": "sent_lead_count",
+    "type": "number",
+    "label": "Sent lead count"
+  },
+  {
+    "name": "picked_up_lead_count",
+    "type": "number",
+    "label": "Picked up lead count"
+  },
+  {
+    "name": "number_of_retries",
+    "type": "number",
+    "label": "Number of retries"
+  },
+  {
+    "name": "first_retry_count",
+    "type": "number",
+    "label": "First retry count"
+  },
+  {
+    "name": "second_retry_count",
+    "type": "number",
+    "label": "Second retry count"
+  },
+  {
+    "name": "third_retry_count",
+    "type": "number",
+    "label": "Third retry count"
+  },
+  {
+    "name": "fourth_retry_count",
+    "type": "number",
+    "label": "Fourth retry count"
+  },
+  {
+    "name": "attempt_stages",
+    "type": "any",
+    "label": "Attempt stages"
+  }
+]

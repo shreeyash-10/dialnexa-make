@@ -1,0 +1,39 @@
+[
+  {
+    "name": "agentId",
+    "type": "select",
+    "label": "Agent",
+    "help": "Select the published agent that should handle the call.",
+    "options": "rpc://listAgents",
+    "required": true
+  },
+  {
+    "name": "phoneNumber",
+    "type": "text",
+    "label": "Phone number",
+    "help": "Enter the destination in E.164 format, for example `+919876543210`.",
+    "required": true
+  },
+  {
+    "name": "metadata",
+    "type": "json",
+    "label": "Metadata",
+    "help": "Add values used to personalize the agent. Keys become dynamic variables in the call.",
+    "required": true,
+    "default": "{}"
+  },
+  {
+    "name": "agentVersionNumber",
+    "type": "uinteger",
+    "label": "Agent version number",
+    "help": "Optional published version. Leave empty to use the latest published version.",
+    "advanced": true
+  },
+  {
+    "name": "notes",
+    "type": "json",
+    "label": "Notes",
+    "help": "Optional JSON object stored on the call log. DialNexa accepts up to 15 top-level keys.",
+    "advanced": true
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "workflowId",
+    "type": "select",
+    "label": "Workflow",
+    "options": "rpc://listWorkflows",
+    "required": true
+  },
+  {
+    "name": "fileName",
+    "type": "filename",
+    "label": "File name",
+    "help": "Use a CSV, XLSX, or XLS file with a `phone_number` column.",
+    "semantic": "file:name",
+    "required": true
+  },
+  {
+    "name": "fileData",
+    "type": "buffer",
+    "label": "File data",
+    "semantic": "file:data",
+    "required": true
+  }
+]

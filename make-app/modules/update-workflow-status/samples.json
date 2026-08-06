@@ -1,0 +1,9 @@
+{
+  "statusCode": 200,
+  "message": "Workflow activated successfully",
+  "data": {
+    "id": "workflow_abc123",
+    "title": "Q3 outreach workflow",
+    "status": "active"
+  }
+}

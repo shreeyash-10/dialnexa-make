@@ -1,0 +1,34 @@
+[
+  {
+    "name": "sortBy",
+    "type": "text",
+    "label": "Sort by",
+    "default": "createdAt",
+    "advanced": true
+  },
+  {
+    "name": "sortOrder",
+    "type": "select",
+    "label": "Sort order",
+    "options": [
+      {
+        "label": "Descending",
+        "value": "DESC"
+      },
+      {
+        "label": "Ascending",
+        "value": "ASC"
+      }
+    ],
+    "default": "DESC",
+    "advanced": true
+  },
+  {
+    "name": "limit",
+    "type": "uinteger",
+    "label": "Limit",
+    "help": "Maximum number of results to return and work with during one execution cycle.",
+    "default": 20,
+    "required": true
+  }
+]

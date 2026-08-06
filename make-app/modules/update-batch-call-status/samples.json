@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "message": "Campaign paused successfully",
+  "campaign": {
+    "id": "batch_abc123",
+    "status": "paused",
+    "title": "Q3 follow-up batch"
+  },
+  "affectedCalls": {
+    "removedFromQueue": 12
+  }
+}

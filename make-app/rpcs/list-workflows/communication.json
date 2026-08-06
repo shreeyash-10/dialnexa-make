@@ -1,0 +1,16 @@
+{
+  "url": "/v1/workflows",
+  "method": "GET",
+  "qs": {
+    "page": 1,
+    "limit": 100
+  },
+  "response": {
+    "iterate": "{{body.data}}",
+    "output": {
+      "label": "{{ifempty(item.title, item.id)}}",
+      "value": "{{item.id}}"
+    },
+    "limit": 100
+  }
+}

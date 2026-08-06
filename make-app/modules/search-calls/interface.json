@@ -1,0 +1,77 @@
+[
+  {
+    "name": "id",
+    "type": "text",
+    "label": "Call ID"
+  },
+  {
+    "name": "agent_id",
+    "type": "text",
+    "label": "Agent ID"
+  },
+  {
+    "name": "to_number",
+    "type": "text",
+    "label": "To number"
+  },
+  {
+    "name": "from_number",
+    "type": "text",
+    "label": "From number"
+  },
+  {
+    "name": "status",
+    "type": "text",
+    "label": "Status"
+  },
+  {
+    "name": "call_direction",
+    "type": "text",
+    "label": "Call direction"
+  },
+  {
+    "name": "createdAt",
+    "type": "date",
+    "label": "Created at"
+  },
+  {
+    "name": "duration",
+    "type": "number",
+    "label": "Duration"
+  },
+  {
+    "name": "transcript",
+    "type": "text",
+    "label": "Transcript"
+  },
+  {
+    "name": "summary",
+    "type": "text",
+    "label": "Summary"
+  },
+  {
+    "name": "sentiment",
+    "type": "text",
+    "label": "Sentiment"
+  },
+  {
+    "name": "recording_url",
+    "type": "url",
+    "label": "Recording URL"
+  },
+  {
+    "name": "metadata",
+    "type": "any",
+    "label": "Metadata"
+  },
+  {
+    "name": "extracted_data",
+    "type": "any",
+    "label": "Extracted data"
+  },
+  {
+    "name": "billing",
+    "type": "any",
+    "label": "Billing"
+  }
+]

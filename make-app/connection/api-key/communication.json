@@ -1,0 +1,22 @@
+{
+  "url": "https://api.dialnexa.com/v1/agents",
+  "method": "GET",
+  "headers": {
+    "Authorization": "Bearer {{parameters.apiKey}}",
+    "Accept": "application/json"
+  },
+  "response": {
+    "metadata": {
+      "type": "text",
+      "value": "DialNexa workspace"
+    },
+    "error": {
+      "message": "[{{statusCode}}] {{ifempty(body.message, body.error)}}"
+    }
+  },
+  "log": {
+    "sanitize": [
+      "request.headers.authorization"
+    ]
+  }
+}

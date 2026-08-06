@@ -1,0 +1,129 @@
+[
+  {
+    "name": "agentId",
+    "type": "select",
+    "label": "Agent",
+    "options": "rpc://listAgents"
+  },
+  {
+    "name": "callId",
+    "type": "text",
+    "label": "Call ID",
+    "help": "Enter one call ID or comma-separate multiple IDs."
+  },
+  {
+    "name": "batchCallId",
+    "type": "text",
+    "label": "Batch call ID",
+    "help": "Enter one batch call ID or comma-separate multiple IDs."
+  },
+  {
+    "name": "fromNumber",
+    "type": "text",
+    "label": "From number"
+  },
+  {
+    "name": "toNumber",
+    "type": "text",
+    "label": "To number"
+  },
+  {
+    "name": "callType",
+    "type": "select",
+    "label": "Call type",
+    "options": [
+      {
+        "label": "Phone",
+        "value": "phone"
+      },
+      {
+        "label": "Web",
+        "value": "web"
+      }
+    ]
+  },
+  {
+    "name": "callDirection",
+    "type": "select",
+    "label": "Call direction",
+    "options": [
+      {
+        "label": "Inbound",
+        "value": "inbound"
+      },
+      {
+        "label": "Outbound",
+        "value": "outbound"
+      }
+    ]
+  },
+  {
+    "name": "sentiment",
+    "type": "select",
+    "label": "Sentiment",
+    "options": [
+      {
+        "label": "Positive",
+        "value": "positive"
+      },
+      {
+        "label": "Neutral",
+        "value": "neutral"
+      },
+      {
+        "label": "Negative",
+        "value": "negative"
+      },
+      {
+        "label": "Unknown",
+        "value": "unknown"
+      }
+    ]
+  },
+  {
+    "name": "status",
+    "type": "text",
+    "label": "Status",
+    "help": "Enter one status or comma-separate multiple statuses."
+  },
+  {
+    "name": "startDate",
+    "type": "date",
+    "label": "Start date"
+  },
+  {
+    "name": "endDate",
+    "type": "date",
+    "label": "End date"
+  },
+  {
+    "name": "endReason",
+    "type": "text",
+    "label": "End reason",
+    "help": "Enter an exact end reason or comma-separate multiple values."
+  },
+  {
+    "name": "createdAtSort",
+    "type": "select",
+    "label": "Created at sort order",
+    "options": [
+      {
+        "label": "Newest first",
+        "value": "desc"
+      },
+      {
+        "label": "Oldest first",
+        "value": "asc"
+      }
+    ],
+    "advanced": true
+  },
+  {
+    "name": "limit",
+    "type": "uinteger",
+    "label": "Limit",
+    "help": "Maximum number of results to return and work with during one execution cycle.",
+    "default": 20,
+    "required": true
+  }
+]

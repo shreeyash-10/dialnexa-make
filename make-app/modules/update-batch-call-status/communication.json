@@ -1,0 +1,11 @@
+{
+  "url": "/v1/batch-calls/{{parameters.id}}/status",
+  "method": "PATCH",
+  "type": "json",
+  "body": {
+    "action": "{{parameters.action}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

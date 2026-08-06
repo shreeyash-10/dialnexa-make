@@ -1,0 +1,21 @@
+{
+  "url": "/v1/workflows",
+  "method": "GET",
+  "qs": {
+    "sortOrder": "{{parameters.sortOrder}}",
+    "sortBy": "{{parameters.sortBy}}",
+    "page": 1,
+    "limit": 100
+  },
+  "response": {
+    "iterate": "{{body.data}}",
+    "output": "{{item}}",
+    "limit": "{{parameters.limit}}"
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{body.meta.currentPage < body.meta.totalPages}}"
+  }
+}

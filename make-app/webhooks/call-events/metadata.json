@@ -1,0 +1,8 @@
+{
+  "name": "callEvents",
+  "label": "Call events",
+  "type": "dedicated",
+  "connection": "dialnexaApiKey",
+  "attach": "attach.json",
+  "detach": "detach.json"
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "name": "id",
+    "type": "text",
+    "label": "Batch call ID",
+    "required": true
+  },
+  {
+    "name": "status",
+    "type": "text",
+    "label": "Call status",
+    "help": "Filter the returned call logs by one status or comma-separated statuses."
+  },
+  {
+    "name": "sentiment",
+    "type": "select",
+    "label": "Sentiment",
+    "options": [
+      {
+        "label": "Positive",
+        "value": "positive"
+      },
+      {
+        "label": "Neutral",
+        "value": "neutral"
+      },
+      {
+        "label": "Negative",
+        "value": "negative"
+      },
+      {
+        "label": "Unknown",
+        "value": "unknown"
+      }
+    ]
+  },
+  {
+    "name": "page",
+    "type": "uinteger",
+    "label": "Page",
+    "default": 1,
+    "advanced": true
+  },
+  {
+    "name": "pageSize",
+    "type": "uinteger",
+    "label": "Page size",
+    "default": 20,
+    "advanced": true
+  }
+]

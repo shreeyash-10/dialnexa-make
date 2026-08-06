@@ -1,0 +1,7 @@
+{
+  "name": "createCall",
+  "label": "Create a call",
+  "description": "Queues a single outbound DialNexa call using a published agent version.",
+  "type": "action",
+  "connection": "dialnexaApiKey"
+}

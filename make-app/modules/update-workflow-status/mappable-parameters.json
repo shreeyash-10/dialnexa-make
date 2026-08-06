@@ -1,0 +1,33 @@
+[
+  {
+    "name": "id",
+    "type": "select",
+    "label": "Workflow",
+    "options": "rpc://listWorkflows",
+    "required": true
+  },
+  {
+    "name": "action",
+    "type": "select",
+    "label": "Action",
+    "options": [
+      {
+        "label": "Activate",
+        "value": "activate"
+      },
+      {
+        "label": "Deactivate",
+        "value": "deactivate"
+      },
+      {
+        "label": "Pause",
+        "value": "pause"
+      },
+      {
+        "label": "Resume",
+        "value": "resume"
+      }
+    ],
+    "required": true
+  }
+]

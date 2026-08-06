@@ -1,0 +1,16 @@
+{
+  "url": "/v1/workflows/{{parameters.workflowId}}/leads",
+  "method": "POST",
+  "type": "multipart/form-data",
+  "body": {
+    "file": {
+      "value": "{{parameters.fileData}}",
+      "options": {
+        "filename": "{{parameters.fileName}}"
+      }
+    }
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "url": "/v1/batch-calls",
+  "method": "GET",
+  "qs": {
+    "status": "{{parameters.status}}",
+    "page": 1,
+    "limit": 100
+  },
+  "response": {
+    "iterate": "{{body.items}}",
+    "output": "{{item}}",
+    "limit": "{{parameters.limit}}"
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{body.page * body.limit < body.total}}"
+  }
+}

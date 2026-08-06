@@ -1,0 +1,32 @@
+[
+  {
+    "name": "id",
+    "type": "text",
+    "label": "Workflow ID"
+  },
+  {
+    "name": "title",
+    "type": "text",
+    "label": "Title"
+  },
+  {
+    "name": "status",
+    "type": "text",
+    "label": "Status"
+  },
+  {
+    "name": "description",
+    "type": "text",
+    "label": "Description"
+  },
+  {
+    "name": "createdAt",
+    "type": "date",
+    "label": "Created at"
+  },
+  {
+    "name": "updatedAt",
+    "type": "date",
+    "label": "Updated at"
+  }
+]

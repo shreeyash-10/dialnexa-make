@@ -1,0 +1,7 @@
+{
+  "name": "searchCalls",
+  "label": "Search calls",
+  "description": "Searches DialNexa calls using agent, direction, status, sentiment, date, and phone-number filters.",
+  "type": "search",
+  "connection": "dialnexaApiKey"
+}

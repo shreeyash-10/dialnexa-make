@@ -1,0 +1,7 @@
+{
+  "url": "/v1/workflows/{{parameters.id}}",
+  "method": "GET",
+  "response": {
+    "output": "{{body}}"
+  }
+}

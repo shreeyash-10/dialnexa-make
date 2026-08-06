@@ -1,0 +1,7 @@
+{
+  "name": "getWorkflow",
+  "label": "Get a workflow",
+  "description": "Returns one DialNexa workflow and its current lifecycle state.",
+  "type": "action",
+  "connection": "dialnexaApiKey"
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "apiKey",
+    "type": "password",
+    "label": "API key",
+    "help": "Create an API key in DialNexa under **Settings > API Keys** and enter the complete `key_id:secret` value.",
+    "required": true,
+    "editable": true
+  }
+]

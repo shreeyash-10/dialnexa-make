@@ -1,0 +1,7 @@
+{
+  "name": "updateWorkflowStatus",
+  "label": "Update a workflow status",
+  "description": "Activates, deactivates, pauses, or resumes a DialNexa workflow.",
+  "type": "action",
+  "connection": "dialnexaApiKey"
+}

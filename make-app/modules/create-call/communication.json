@@ -1,0 +1,15 @@
+{
+  "url": "/v1/calls",
+  "method": "POST",
+  "type": "json",
+  "body": {
+    "phone_number": "{{parameters.phoneNumber}}",
+    "agent_id": "{{parameters.agentId}}",
+    "agent_version_number": "{{parameters.agentVersionNumber}}",
+    "metadata": "{{parameters.metadata}}",
+    "notes": "{{parameters.notes}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

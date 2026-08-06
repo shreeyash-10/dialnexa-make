@@ -1,0 +1,22 @@
+[
+  {
+    "name": "success",
+    "type": "boolean",
+    "label": "Success"
+  },
+  {
+    "name": "message",
+    "type": "text",
+    "label": "Message"
+  },
+  {
+    "name": "campaign",
+    "type": "any",
+    "label": "Campaign"
+  },
+  {
+    "name": "affectedCalls",
+    "type": "any",
+    "label": "Affected calls"
+  }
+]

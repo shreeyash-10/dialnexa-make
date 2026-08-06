@@ -1,0 +1,7 @@
+{
+  "name": "listWorkflows",
+  "label": "List workflows",
+  "description": "Returns DialNexa workflows with their current lifecycle status.",
+  "type": "search",
+  "connection": "dialnexaApiKey"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "watchCallEvents",
+  "label": "Watch call events",
+  "description": "Triggers when a DialNexa call completes or fails.",
+  "type": "instant_trigger",
+  "connection": "dialnexaApiKey",
+  "webhook": "callEvents"
+}

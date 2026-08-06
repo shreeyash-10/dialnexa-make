@@ -1,0 +1,28 @@
+[
+  {
+    "name": "id",
+    "type": "text",
+    "label": "Batch call ID",
+    "required": true
+  },
+  {
+    "name": "action",
+    "type": "select",
+    "label": "Action",
+    "options": [
+      {
+        "label": "Pause",
+        "value": "pause"
+      },
+      {
+        "label": "Resume",
+        "value": "resume"
+      },
+      {
+        "label": "Cancel",
+        "value": "cancel"
+      }
+    ],
+    "required": true
+  }
+]

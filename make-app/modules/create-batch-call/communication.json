@@ -1,0 +1,23 @@
+{
+  "url": "/v1/batch-calls",
+  "method": "POST",
+  "type": "multipart/form-data",
+  "body": {
+    "file": {
+      "value": "{{parameters.fileData}}",
+      "options": {
+        "filename": "{{parameters.fileName}}"
+      }
+    },
+    "title": "{{parameters.title}}",
+    "agent_id": "{{parameters.agentId}}",
+    "agent_version_number": "{{parameters.agentVersionNumber}}",
+    "starts_at": "{{parameters.startsAt}}",
+    "ends_at": "{{parameters.endsAt}}",
+    "calling_hours_start": "{{parameters.callingHoursStart}}",
+    "calling_hours_end": "{{parameters.callingHoursEnd}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

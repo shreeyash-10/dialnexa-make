@@ -1,0 +1,57 @@
+[
+  {
+    "name": "call_id",
+    "type": "text",
+    "label": "Call ID"
+  },
+  {
+    "name": "status",
+    "type": "text",
+    "label": "Status"
+  },
+  {
+    "name": "sentiment",
+    "type": "text",
+    "label": "Sentiment"
+  },
+  {
+    "name": "summary",
+    "type": "text",
+    "label": "Summary"
+  },
+  {
+    "name": "transcript",
+    "type": "text",
+    "label": "Transcript"
+  },
+  {
+    "name": "extracted_data",
+    "type": "any",
+    "label": "Extracted data"
+  },
+  {
+    "name": "duration",
+    "type": "number",
+    "label": "Duration"
+  },
+  {
+    "name": "recording_url",
+    "type": "url",
+    "label": "Recording URL"
+  },
+  {
+    "name": "agent_id",
+    "type": "text",
+    "label": "Agent ID"
+  },
+  {
+    "name": "metadata",
+    "type": "any",
+    "label": "Metadata"
+  },
+  {
+    "name": "billing",
+    "type": "any",
+    "label": "Billing"
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "name": "id",
+    "type": "text",
+    "label": "Agent ID"
+  },
+  {
+    "name": "folder_id",
+    "type": "text",
+    "label": "Folder ID"
+  },
+  {
+    "name": "current_version_number",
+    "type": "integer",
+    "label": "Current version number"
+  },
+  {
+    "name": "timezone",
+    "type": "text",
+    "label": "Timezone"
+  },
+  {
+    "name": "agent_type",
+    "type": "text",
+    "label": "Agent type"
+  },
+  {
+    "name": "pipeline_type",
+    "type": "text",
+    "label": "Pipeline type"
+  },
+  {
+    "name": "webhook_id",
+    "type": "text",
+    "label": "Webhook ID"
+  },
+  {
+    "name": "current_version",
+    "type": "any",
+    "label": "Current version"
+  },
+  {
+    "name": "versions",
+    "type": "any",
+    "label": "Versions"
+  },
+  {
+    "name": "created_at",
+    "type": "date",
+    "label": "Created at"
+  },
+  {
+    "name": "updated_at",
+    "type": "date",
+    "label": "Updated at"
+  }
+]

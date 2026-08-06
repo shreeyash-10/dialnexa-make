@@ -1,0 +1,27 @@
+[
+  {
+    "name": "callLogs",
+    "type": "any",
+    "label": "Call logs"
+  },
+  {
+    "name": "total",
+    "type": "number",
+    "label": "Total"
+  },
+  {
+    "name": "page",
+    "type": "number",
+    "label": "Page"
+  },
+  {
+    "name": "limit",
+    "type": "number",
+    "label": "Page size"
+  },
+  {
+    "name": "totalPages",
+    "type": "number",
+    "label": "Total pages"
+  }
+]
