@@ -28,7 +28,7 @@ Create scenario A for successful actions:
 2. **Create a call** to the controlled test destination.
 3. **Get a call** using the new call ID.
 4. Route to **Search calls** and confirm the new ID is returned.
-5. **Create a batch call** with a two-row synthetic file, then **List batch calls** and **Get a batch call** using the returned ID.
+5. **Create a batch call** with a two-row synthetic file containing `name` and `phone` columns, then **List batch calls** and **Get a batch call** using the returned ID. When entering base64 test data manually, map it as an evaluated buffer such as `{{toBinary("<base64>"; "base64")}}`; plain `toBinary(...)` text is uploaded literally and is not a valid CSV.
 6. **List workflows**, **Get a workflow**, then **Upload workflow leads** with a two-row synthetic file.
 7. **Make an API call** with `GET /v1/languages`.
 

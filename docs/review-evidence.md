@@ -27,12 +27,13 @@ All reviewer-safe write tests use the reserved fictional number `+12025550100`, 
 | --- | --- | --- | --- |
 | Pagination | DialNexa – Workflows Final Verification (`6846738`) | API page size 10 returned 13 bundles across two pages. | Existing workflow names may identify customers. Repeat in a workspace containing only synthetic workflow names. |
 | Agent/batch diagnostics | DialNexa – Diagnostic Agent Metadata – Do Not Submit (`6847859`) | Confirmed agent version 4 and exposed a batch endpoint inconsistency. | Its history contains a real DialNexa telephony number. |
+| Create a batch call | DialNexa – Private Batch + Webhook – Do Not Submit (`6848344`) | Version 5 successfully created a two-record batch with status `initiated` after the file input was mapped as an evaluated, fully quoted `toBinary()` expression. | The successful execution contains user-authorized real test destinations. Re-run with reviewer-safe DialNexa-owned test data before submission. |
 
 ## Blocked or failed checks
 
 | Module or check | Status | Required next action |
 | --- | --- | --- |
-| Create a batch call | Scenario `6848344` correctly parsed the one-row synthetic CSV, but DialNexa returned `404 No outbound phone number found` even though agent version 4 exposes an outbound telephony provider. | Fix the DialNexa batch-create phone/provider lookup, then re-run the same scenario. Do not submit the failed execution as module evidence. |
+| Reviewer-safe Create a batch call evidence | The module now succeeds, but the successful diagnostic run contains real test destinations. | Create or designate DialNexa-owned reviewer-safe destinations, then re-run with `name,phone` headers and an evaluated binary buffer. |
 | Watch call events: delivery | Webhook registration succeeded in scenario `6848048`. A fictional pre-connect failure did not deliver `call.failed` during the listening window. | Align the DialNexa event contract and delivery path, then repeat with a controlled completed or failed call. |
 | Watch call events: removal | The disposable webhook was successfully removed from Make after testing, exercising the detach flow. | Recreate it only when delivery is ready to re-test. |
 | Reviewer-safe List workflows | Pagination works, but the current workspace includes non-synthetic-looking workflow titles. | Use a clean Make/DialNexa review workspace populated only with synthetic workflows. |
@@ -41,6 +42,7 @@ All reviewer-safe write tests use the reserved fictional number `+12025550100`, 
 
 - **Get a batch call:** DialNexa returns a root array. The action now wraps it in one Make bundle with `callLogs`, `returnedCount`, `page`, and `limit`.
 - **List workflows pagination:** added an advanced `API page size` parameter. A page size of 10 verified pagination over 13 results while retaining a default of 100.
+- **Create a batch call:** confirmed the API expects `name` and `phone` CSV columns. A manually entered Make test buffer must use an evaluated expression with both arguments quoted: `{{toBinary("<base64>"; "base64")}}`. Earlier plain-text expressions uploaded the formula itself and caused `No valid phone numbers found in CSV`.
 - **Samples:** replaced realistic-looking phone numbers with reserved `+1 202-555-01xx` fictional numbers.
 
 ## Submission metadata draft
