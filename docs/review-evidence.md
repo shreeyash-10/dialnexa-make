@@ -37,7 +37,7 @@ Reviewer-safe write tests use only synthetic labels and destinations that DialNe
 | Module or check | Status | Required next action |
 | --- | --- | --- |
 | Update a batch call status — cancel | The immediate Create Batch → Cancel chain was built with six synthetic rows using the two DialNexa-controlled test destinations. Create Batch failed before Cancel could run with `[404] No outbound phone number found for campaign rsAaLX6kaMcUa4 and agent version 5`. | Fix the batch endpoint's outbound-number lookup for published agent version 5, then rerun the already-saved chained scenario. |
-| Reviewer-safe webhook payload | Attach, completed-event delivery, and removal all work. | Produce one controlled webhook event whose logged output omits transcript and recording fields, or obtain Make reviewer approval for synthetic controlled-call payloads. |
+| Reviewer-safe webhook payload | Attach, completed-event delivery, and removal all work. A second test used reserved fictional destination `+1 202-555-0100`; the call reached `failed` with empty transcript and recording fields, but DialNexa did not deliver the subscribed `call.failed` event. The temporary webhook was removed and Make's webhook list was verified empty. | Fix `call.failed` delivery and repeat the fictional-destination test, or obtain Make reviewer approval for the successful controlled `call.completed` payload. |
 
 ## Connector corrections discovered during testing
 
