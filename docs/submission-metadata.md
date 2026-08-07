@@ -13,9 +13,7 @@
 ## Contacts
 
 - Support contact: DialNexa Operations — `operations@dialnexa.com`
-- Partnership contact: DialNexa Operations — `operations@dialnexa.com`
-
-Confirm the named owner for the partnership contact before the review form is submitted.
+- Partnership contact: Shreeyash Kanwade, Product Ops — `operations@dialnexa.com`
 
 ## Requested directory categories
 

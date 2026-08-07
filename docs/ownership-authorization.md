@@ -6,9 +6,9 @@
 
 ## Authorized representative
 
-- Name: **Pending confirmation**
-- Title: **Pending confirmation**
+- Name: Shreeyash Kanwade
+- Title: Product Ops
 - Company: DialNexa Labs Private Limited
 - Date: 2026-08-07
 
-Replace the two pending fields with the authorized representative's name and title before the review is requested.
+Confirmed by the authorized representative for use in DialNexa's Make app review package.

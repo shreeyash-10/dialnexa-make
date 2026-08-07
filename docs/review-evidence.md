@@ -52,10 +52,10 @@ Reviewer-safe write tests use only synthetic labels and destinations that DialNe
 - Service URL: `https://dialnexa.com`
 - API documentation: `https://dialnexa.com/docs/api-reference/introduction`
 - Support contact: DialNexa Operations at `operations@dialnexa.com`
-- Partnership contact: DialNexa Operations at `operations@dialnexa.com` (named owner pending confirmation)
+- Partnership contact: Shreeyash Kanwade, Product Ops, at `operations@dialnexa.com`
 - Recommended categories: AI → Voice Agents; Communication → SMS & Phone; CRM/Sales → Lead Generation
 - Theme: `#14003D`
 - Accent: `#7C3AED`
 - Logo: `assets/dialnexa-make-icon.png` (1024 × 1024 transparent PNG; 55,219 bytes)
 
-Before submission, an authorized DialNexa representative must name the partnership owner and complete the vendor/trademark authorization in `docs/ownership-authorization.md`.
+The vendor/trademark authorization is completed in `docs/ownership-authorization.md` by Shreeyash Kanwade, Product Ops.
