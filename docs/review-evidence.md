@@ -22,12 +22,13 @@ Reviewer-safe write tests use only synthetic labels and destinations that DialNe
 | Update a workflow status | DialNexa – Reviewer Safe Workflow Deactivate | `6848511` | Successfully deactivated the disposable workflow before uploading leads. |
 | Upload workflow leads | DialNexa – Reviewer Safe Upload Leads | `6848549` | Uploaded one fictional lead to the inactive workflow; HTTP 201. |
 | Deliberate error handling | DialNexa – Reviewer Safe Error Handling | `6847838` | Expected clean 404 for `workflow_make_review_missing`. |
+| List workflows pagination | DialNexa – Workflows Final Verification | `6846738` | Successful on 2026-08-07 with API page size 1 and limit 2; returned two bundles. [Execution](https://eu1.make.com/2283008/scenarios/6846738/logs/b4589b44a80242a2b67ff2aa9a8ffdd9?showCheckRuns=true&showChangeLog=true). The DialNexa authorized representative approved using the existing workflow titles in this run. |
 
 ## Technical evidence that is not submission-safe yet
 
 | Check | Scenario | Result | Why it must not be submitted yet |
 | --- | --- | --- | --- |
-| Pagination | DialNexa – Workflows Final Verification (`6846738`) | API page size 10 returned 13 bundles across two pages. | Existing workflow names may identify customers. Repeat in a workspace containing only synthetic workflow names. |
+| Webhook completed-event payload | DialNexa – Reviewer Safe Watch Completed (`6848048`) | A controlled call produced a successful `call.completed` delivery on 2026-08-07; the webhook was then removed from Make and the webhook list was verified empty. [Execution](https://eu1.make.com/2283008/scenarios/6848048/logs/1128d9b2f5784aad9d0c5e5d9b609863?showCheckRuns=true&showChangeLog=true). | The payload contains a transcript, summary, and recording path. This proves attach, delivery, and removal, but should not be submitted as the privacy-safe reviewer run. |
 | Agent/batch diagnostics | DialNexa – Diagnostic Agent Metadata – Do Not Submit (`6847859`) | Confirmed agent version 4 and exposed a batch endpoint inconsistency. | Its history contains a real DialNexa telephony number. |
 | Agent/batch diagnostics | Older executions in the private batch scenario (`6848344`) | Earlier draft attempts exercised invalid CSV shapes and non-reviewer diagnostics. | Share only the fresh successful execution identified above, not the scenario's older history. |
 
@@ -35,15 +36,13 @@ Reviewer-safe write tests use only synthetic labels and destinations that DialNe
 
 | Module or check | Status | Required next action |
 | --- | --- | --- |
-| Update a batch call status — cancel | Two-row batches reached a final `completed` state before a second scenario could issue cancel, so the API correctly rejected cancel on a final campaign. | Run Create Batch → Cancel in one chained scenario, using 5–6 synthetic rows on the two DialNexa-controlled test destinations so cancellation is issued immediately. |
-| Watch call events: delivery | Webhook registration succeeded in scenario `6848048`. A fictional pre-connect failure did not deliver `call.failed` during the listening window. | Align the DialNexa event contract and delivery path, then repeat with a controlled completed or failed call. |
-| Watch call events: removal | The disposable webhook was successfully removed from Make after testing, exercising the detach flow. | Recreate it only when delivery is ready to re-test. |
-| Reviewer-safe List workflows | Pagination works, but the current workspace includes non-synthetic-looking workflow titles. | Use a clean Make/DialNexa review workspace populated only with synthetic workflows. |
+| Update a batch call status — cancel | The immediate Create Batch → Cancel chain was built with six synthetic rows using the two DialNexa-controlled test destinations. Create Batch failed before Cancel could run with `[404] No outbound phone number found for campaign rsAaLX6kaMcUa4 and agent version 5`. | Fix the batch endpoint's outbound-number lookup for published agent version 5, then rerun the already-saved chained scenario. |
+| Reviewer-safe webhook payload | Attach, completed-event delivery, and removal all work. | Produce one controlled webhook event whose logged output omits transcript and recording fields, or obtain Make reviewer approval for synthetic controlled-call payloads. |
 
 ## Connector corrections discovered during testing
 
 - **Get a batch call:** DialNexa returns a root array. The action now wraps it in one Make bundle with `callLogs`, `returnedCount`, `page`, and `limit`.
-- **List workflows pagination:** added an advanced `API page size` parameter. A page size of 10 verified pagination over 13 results while retaining a default of 100.
+- **List workflows pagination:** added an advanced `API page size` parameter. A page size of 1 with limit 2 verified page advancement on 2026-08-07 while retaining a default of 100.
 - **Create a batch call:** confirmed the API expects `name` and `phone` CSV columns. A manually entered Make test buffer must use an evaluated expression with both arguments quoted: `{{toBinary("<base64>"; "base64")}}`. Earlier plain-text expressions uploaded the formula itself and caused `No valid phone numbers found in CSV`.
 - **Samples:** replaced realistic-looking phone numbers with reserved `+1 202-555-01xx` fictional numbers.
 
@@ -57,5 +56,7 @@ Reviewer-safe write tests use only synthetic labels and destinations that DialNe
 - Theme: `#14003D`
 - Accent: `#7C3AED`
 - Logo: `assets/dialnexa-make-icon.png` (1024 × 1024 transparent PNG; 55,219 bytes)
+
+The live Make app theme was synchronized to `#14003D` on 2026-08-07. The logo file is ready, but the browser-control file upload was blocked locally; upload the exact PNG above in **Edit App → App logo** before submission.
 
 The vendor/trademark authorization is completed in `docs/ownership-authorization.md` by Shreeyash Kanwade, Product Ops.
