@@ -1,6 +1,6 @@
 # Make platform audit
 
-Audited on 2026-08-06 against Make's current Custom Apps documentation and Technology Partner pages.
+Audited on 2026-08-07 against Make's current Custom Apps documentation, public directory taxonomy, and Technology Partner pages.
 
 ## What Make requires for a directory app
 
@@ -17,7 +17,7 @@ Audited on 2026-08-06 against Make's current Custom Apps documentation and Techn
 | Limits and pagination | Search/list modules and RPCs need limits; pagination must be implemented when the API supports it. | Calls, batches, and workflows paginate according to their distinct envelopes. Agent listing is bounded because DialNexa returns the full catalog. |
 | Universal module | Every reviewed app must include a REST universal module. | `Make an API call` follows Make's required label, description, URL prefix, and response shape. |
 | Test scenarios | Every module must appear in at least one successful test scenario; reviewers also expect pagination evidence and a deliberate error run. | Scenario plan is in `app-review-runbook.md`. No personal or sensitive data may appear in logs. |
-| Review metadata | API docs, test-scenario links, developer/vendor relationship, partnership and support contacts, categories, company logo, service URL, and compliance confirmations are requested. | API/service URLs are ready. Contacts, final categories, official logo, and authorized compliance confirmations must come from DialNexa. |
+| Review metadata | API docs, test-scenario links, developer/vendor relationship, partnership and support contacts, categories, company logo, service URL, and compliance confirmations are requested. | API/service URLs, operations contacts, directory categories, theme, and a compliant official-logo derivative are prepared in `submission-metadata.md`. The authorized representative's name and title remain the only missing ownership-attestation fields. |
 
 ## Publication lifecycle risks
 

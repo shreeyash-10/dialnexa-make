@@ -1,6 +1,8 @@
 # Official brand asset
 
-The private Make app currently uses DialNexa's square waveform icon. Add the authorized source file here as `dialnexa-make-icon.png` before requesting review so the repository and Make editor use the same artifact.
+[`dialnexa-make-icon.png`](dialnexa-make-icon.png) is the DialNexa square waveform icon prepared for Make. It is a 1024 × 1024 transparent PNG (55,219 bytes).
+
+The artwork comes directly from `https://dialnexa.com/favicon.png`, which DialNexa's official website identifies as the organization logo in its structured organization metadata. The source pixels were resized to Make's required dimensions without redrawing or changing the mark.
 
 Make requires a PNG that is:
 
@@ -8,7 +10,7 @@ Make requires a PNG that is:
 - between 512 × 512 and 2048 × 2048 pixels;
 - no larger than 500 kB.
 
-Use only the vendor-authorized DialNexa artwork and confirm trademark/brand authorization in the review form. Do not invent or redraw the logo for the directory submission.
+Use this same file in the Make editor and the review form. Confirm trademark/brand authorization in the review form; do not invent or redraw the logo for the directory submission.
 
 Official website colors verified on 2026-08-06:
 

@@ -5,6 +5,7 @@ import process from "node:process";
 const root = process.cwd();
 const appRoot = path.join(root, "make-app");
 const moduleRoot = path.join(appRoot, "modules");
+const logoFile = path.join(root, "assets/dialnexa-make-icon.png");
 const errors = [];
 const warnings = [];
 
@@ -23,6 +24,31 @@ function readJson(file) {
     return null;
   }
 }
+
+function validateLogo(file) {
+  if (!fs.existsSync(file)) {
+    errors.push("assets/dialnexa-make-icon.png is missing.");
+    return;
+  }
+
+  const logo = fs.readFileSync(file);
+  const pngSignature = "89504e470d0a1a0a";
+  if (logo.length < 24 || logo.subarray(0, 8).toString("hex") !== pngSignature) {
+    errors.push("DialNexa's Make logo must be a valid PNG file.");
+    return;
+  }
+
+  const width = logo.readUInt32BE(16);
+  const height = logo.readUInt32BE(20);
+  if (width !== height || width < 512 || width > 2048) {
+    errors.push(`DialNexa's Make logo must be square and 512–2048 px; found ${width} × ${height}.`);
+  }
+  if (logo.length > 500_000) {
+    errors.push(`DialNexa's Make logo must be no larger than 500 kB; found ${logo.length} bytes.`);
+  }
+}
+
+validateLogo(logoFile);
 
 for (const file of walk(appRoot).filter((candidate) => candidate.endsWith(".json"))) {
   readJson(file);

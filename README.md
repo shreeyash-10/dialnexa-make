@@ -28,7 +28,9 @@ Use these values when creating the custom app in Make:
 | API documentation | `https://dialnexa.com/docs/api-reference/introduction` |
 | Service URL | `https://dialnexa.com` |
 
-The theme values above were verified against DialNexa's official website on 2026-08-06. The Make app already uses the official square waveform artwork; keep a repository copy of that authorized asset as described in [assets/README.md](assets/README.md).
+The theme values above were verified against DialNexa's official website on 2026-08-06. Use the repository's Make-compliant copy of the official square waveform artwork described in [assets/README.md](assets/README.md).
+
+The remaining directory-form values are recorded in [submission metadata](docs/submission-metadata.md), with the vendor authorization text in [ownership authorization](docs/ownership-authorization.md).
 
 ## Build order in Make
 

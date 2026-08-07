@@ -34,7 +34,7 @@ Create scenario A for successful actions:
 
 Create scenario B for lifecycle actions:
 
-- Use a disposable batch to test pause and resume. Only test cancel on a batch created specifically for cancellation.
+- Use a disposable batch to test pause and resume. Only test cancel on a batch created specifically for cancellation. If small batches complete too quickly, chain **Create a batch call** directly to **Update a batch call status → Cancel** and map the newly returned batch ID so the cancellation is issued in the same execution.
 - Use a disposable workflow to test activate, pause, resume, and deactivate.
 - Read the resource after each transition to verify the new state before another transition.
 
@@ -80,6 +80,8 @@ Have these ready before clicking **Publish**:
 - requested Make categories/subcategories;
 - official directory/company logo;
 - authorized confirmation of trademark rights and external-service/API-policy compliance.
+
+The current prepared values are in `docs/submission-metadata.md`, the compliant PNG is `assets/dialnexa-make-icon.png`, and the authorization statement is in `docs/ownership-authorization.md`.
 
 Then:
 
