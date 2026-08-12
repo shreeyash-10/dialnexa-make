@@ -5,10 +5,10 @@
     "sortOrder": "{{parameters.sortOrder}}",
     "sortBy": "{{parameters.sortBy}}",
     "page": 1,
-    "limit": "{{parameters.pageSize}}"
+    "limit": 100
   },
   "response": {
-    "iterate": "{{body.data.data}}",
+    "iterate": "{{body.data}}",
     "output": "{{item}}",
     "limit": "{{parameters.limit}}"
   },
@@ -16,6 +16,6 @@
     "qs": {
       "page": "{{pagination.page}}"
     },
-    "condition": "{{body.data.meta.currentPage < body.data.meta.totalPages}}"
+    "condition": "{{body.meta.currentPage < body.meta.totalPages}}"
   }
 }

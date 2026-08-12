@@ -1,17 +1,32 @@
 [
   {
-    "name": "statusCode",
-    "type": "number",
-    "label": "Status code"
-  },
-  {
-    "name": "message",
+    "name": "id",
     "type": "text",
-    "label": "Message"
+    "label": "Workflow ID"
   },
   {
-    "name": "data",
-    "type": "any",
-    "label": "Workflow"
+    "name": "title",
+    "type": "text",
+    "label": "Title"
+  },
+  {
+    "name": "status",
+    "type": "text",
+    "label": "Status"
+  },
+  {
+    "name": "description",
+    "type": "text",
+    "label": "Description"
+  },
+  {
+    "name": "createdAt",
+    "type": "date",
+    "label": "Created at"
+  },
+  {
+    "name": "updatedAt",
+    "type": "date",
+    "label": "Updated at"
   }
 ]

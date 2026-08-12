@@ -3,5 +3,6 @@
   "label": "Update a workflow status",
   "description": "Activates, deactivates, pauses, or resumes a DialNexa workflow.",
   "type": "action",
+  "actionCrud": "update",
   "connection": "dialnexaApiKey"
 }

@@ -101,6 +101,7 @@ const moduleDirectories = fs.readdirSync(moduleRoot, { withFileTypes: true })
 
 const names = new Set();
 let universalCount = 0;
+const metadataByName = new Map();
 
 for (const directory of moduleDirectories) {
   const relativeDirectory = path.relative(root, directory);
@@ -121,6 +122,7 @@ for (const directory of moduleDirectories) {
   }
   if (names.has(metadata.name)) errors.push(`Duplicate module name: ${metadata.name}.`);
   names.add(metadata.name);
+  metadataByName.set(metadata.name, metadata);
 
   if (metadata.type === "universal") {
     universalCount += 1;
@@ -141,6 +143,10 @@ for (const directory of moduleDirectories) {
     if (!communication.response?.limit) {
       errors.push(`${metadata.name} must apply response.limit.`);
     }
+    const limit = parameters.find((parameter) => parameter.name === "limit");
+    if (limit && (limit.required !== false || limit.default !== 10)) {
+      errors.push(`${metadata.name}.limit must be optional with a default of 10.`);
+    }
   }
 
   const lastStandard = parameters.filter((parameter) => !parameter.advanced).at(-1);
@@ -159,6 +165,57 @@ for (const directory of moduleDirectories) {
       warnings.push(`${metadata.name}.${field.name} looks like a date but is typed ${field.type}.`);
     }
   }
+}
+
+const expectedCrud = {
+  createCall: "create",
+  createBatchCall: "create",
+  getCall: "read",
+  getBatchCall: "read",
+  getWorkflow: "read",
+  updateBatchCallStatus: "update",
+  updateWorkflowStatus: "update",
+  uploadWorkflowLeads: "create"
+};
+for (const [name, actionCrud] of Object.entries(expectedCrud)) {
+  if (metadataByName.get(name)?.actionCrud !== actionCrud) {
+    errors.push(`${name} must set actionCrud to ${actionCrud}.`);
+  }
+}
+
+const groups = readJson(path.join(appRoot, "groups.json"));
+if (groups) {
+  const categorized = groups.flatMap((group) => group.modules ?? []);
+  for (const name of names) {
+    if (!categorized.includes(name)) errors.push(`${name} is not categorized in groups.json.`);
+  }
+  for (const name of categorized) {
+    if (!names.has(name)) errors.push(`groups.json references unknown module ${name}.`);
+  }
+}
+
+const regressionChecks = [
+  ["modules/list-agents/communication.json", "response.iterate", "{{ifempty(body.data.agents, body.agents)}}"],
+  ["rpcs/list-agents/communication.json", "response.iterate", "{{ifempty(body.data.agents, body.agents)}}"],
+  ["modules/list-workflows/communication.json", "response.iterate", "{{body.data}}"],
+  ["rpcs/list-workflows/communication.json", "response.iterate", "{{body.data}}"],
+  ["modules/list-batch-calls/communication.json", "response.iterate", "{{body.items}}"],
+  ["modules/get-workflow/communication.json", "response.output", "{{body.data}}"],
+  ["modules/update-workflow-status/communication.json", "response.output", "{{body.data}}"]
+];
+for (const [relativeFile, propertyPath, expected] of regressionChecks) {
+  const value = propertyPath.split(".").reduce((current, key) => current?.[key], readJson(path.join(appRoot, relativeFile)));
+  if (value !== expected) errors.push(`${relativeFile} must set ${propertyPath} to ${expected}.`);
+}
+
+const workflowStatus = readJson(path.join(appRoot, "modules/update-workflow-status/communication.json"));
+if (workflowStatus?.method !== "PATCH" || workflowStatus?.body?.action !== "{{parameters.action}}") {
+  errors.push("updateWorkflowStatus must PATCH the requested action.");
+}
+
+const webhookAttach = readJson(path.join(appRoot, "webhooks/call-events/attach.json"));
+if (!String(webhookAttach?.body?.secret ?? "").includes("connection.apiKey")) {
+  errors.push("Call-events webhook secret must use connection.apiKey.");
 }
 
 if (universalCount !== 1) {

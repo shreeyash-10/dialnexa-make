@@ -123,7 +123,7 @@
     "type": "uinteger",
     "label": "Limit",
     "help": "Maximum number of results to return and work with during one execution cycle.",
-    "default": 20,
-    "required": true
+    "default": 10,
+    "required": false
   }
 ]

@@ -9,10 +9,12 @@
   },
   "response": {
     "output": {
-      "callLogs": "{{body}}",
-      "returnedCount": "{{length(body)}}",
-      "page": "{{parameters.page}}",
-      "limit": "{{parameters.pageSize}}"
+      "callLogs": "{{body.callLogs}}",
+      "returnedCount": "{{length(body.callLogs)}}",
+      "total": "{{body.total}}",
+      "page": "{{body.page}}",
+      "limit": "{{body.limit}}",
+      "totalPages": "{{body.totalPages}}"
     }
   }
 }

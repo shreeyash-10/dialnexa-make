@@ -11,6 +11,9 @@
     }
   },
   "response": {
-    "output": "{{body}}"
+    "output": {
+      "data": "{{body.data}}",
+      "count": "{{body.count}}"
+    }
   }
 }

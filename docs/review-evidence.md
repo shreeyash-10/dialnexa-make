@@ -1,5 +1,28 @@
 # Make app review evidence
 
+## Fresh curated rerun — 2026-08-12
+
+The API-key connection remained valid throughout this rerun: authenticated DialNexa requests returned HTTP 200. One saved scenario per module was used, and write tests were limited to controlled DialNexa destinations with future scheduling and immediate cancellation where applicable.
+
+| Module | Fresh result |
+| --- | --- |
+| List agents | Passed. Returned one real agent bundle after deploying a compatibility mapping that supports both `body.data.agents` (current production response) and `body.agents` (reviewer-documented response). |
+| List batch calls | Passed. |
+| List workflows | Passed, including pagination. |
+| Search calls | Passed. |
+| Create a call | Passed. The Make input inspector showed `metadata` as a Collection, and the API returned a new call ID for the reserved fictional destination. |
+| Get a call | Passed. |
+| Create a batch call | Passed with `agent_qzXtznGkgyvPaE`, published version 17, a two-row `name,phone` CSV using E.164 test destinations, and only `starts_at`. Returned batch `batch_iJqLQM3TYSebgO`, total records `2`, and status `initiated`. Versions 18 and the older agent's versions 4/5 remain unassigned for batch origination. |
+| Get a batch call | Passed and returned the corrected call-log envelope/count. |
+| Update a batch call status | Passed. The standalone reviewer-safe scenario cancelled fresh batch `batch_iJqLQM3TYSebgO` before its scheduled start. |
+| Get a workflow | Passed. |
+| Update a workflow status | Passed with the restored PATCH communication. |
+| Upload workflow leads | Passed. |
+| Watch call events | Fresh webhook creation/attach passed. `call.failed` was not delivered for a reserved fictional number. Repeating the prior method with `call.completed` and a DialNexa-controlled destination succeeded: a 43-second completed call delivered the flat payload with status, summary, transcript, duration, recording path, and metadata. The temporary webhook was deleted and Make's webhook list was verified empty. |
+| Make an API call | Passed with HTTP 200. |
+
+Fresh-run conclusion: all 14 modules completed their curated scenarios, including fresh batch creation/cancellation and fresh webhook creation with `call.completed` delivery. `call.failed` delivery remains an API-side gap, but the submitted Watch module is proven with `call.completed`.
+
 This file tracks Make scenario evidence for the private DialNexa app. Only scenarios explicitly marked **reviewer-safe** should be shared with Make. Re-run the final set immediately before submission so the execution history is fresh.
 
 Reviewer-safe write tests use only synthetic labels and destinations that DialNexa has designated and confirmed as company-controlled test numbers. No customer destinations, recordings, transcripts, or customer metadata may be present in a submitted execution.
@@ -15,10 +38,11 @@ Reviewer-safe write tests use only synthetic labels and destinations that DialNe
 | Make an API call | DialNexa – Reviewer Safe Universal Languages | `6848653` | Successful `GET /v1/languages`, HTTP 200. |
 | Create a call | DialNexa – Reviewer Safe Create Call | `6847899` | Successful creation using a published DialNexa test agent, a reserved fictional destination, and synthetic metadata. |
 | Get a call | DialNexa – Reviewer Safe Get Call | `6848017` | Successful lookup of the fictional failed call; no transcript or recording was created. |
-| Create a batch call | DialNexa – Private Batch + Webhook – Do Not Submit | `6848344` | Fresh successful two-record batch on 2026-08-07 using synthetic names, `name,phone` headers, and two DialNexa-controlled test destinations; returned status `initiated`. Rename the scenario before submission. |
+| Create a batch call | DialNexa – Reviewer Safe Batch Immediate Cancel | `6848344` | Fresh successful two-record batch on 2026-08-12 using agent version 17, synthetic names, exact `name,phone` headers, E.164 DialNexa-controlled test destinations, and a future start; returned status `initiated`. |
 | Get a batch call | DialNexa – Reviewer Safe Get Batch | `6848387` | Fresh successful single bundle on 2026-08-07; returned count was 2 with page 1 and page size 20. |
 | Update a batch call status — pause | DialNexa – Reviewer Safe Batch Cancel | `6848479` | Fresh successful pause on 2026-08-07 for the disposable reviewer-safe batch. |
 | Update a batch call status — resume | DialNexa – Reviewer Safe Batch Cancel | `6848479` | Fresh successful resume on 2026-08-07 for the disposable reviewer-safe batch. |
+| Update a batch call status — cancel | DialNexa – Reviewer Safe Batch Cancel | `6848479` | Fresh successful cancel on 2026-08-12 for `batch_iJqLQM3TYSebgO`, before its scheduled start. |
 | Update a workflow status | DialNexa – Reviewer Safe Workflow Deactivate | `6848511` | Successfully deactivated the disposable workflow before uploading leads. |
 | Upload workflow leads | DialNexa – Reviewer Safe Upload Leads | `6848549` | Uploaded one fictional lead to the inactive workflow; HTTP 201. |
 | Deliberate error handling | DialNexa – Reviewer Safe Error Handling | `6847838` | Expected clean 404 for `workflow_make_review_missing`. |
@@ -36,7 +60,6 @@ Reviewer-safe write tests use only synthetic labels and destinations that DialNe
 
 | Module or check | Status | Required next action |
 | --- | --- | --- |
-| Update a batch call status — cancel | The immediate Create Batch → Cancel chain was built with six synthetic rows using the two DialNexa-controlled test destinations. Create Batch failed before Cancel could run with `[404] No outbound phone number found for campaign rsAaLX6kaMcUa4 and agent version 5`. | Fix the batch endpoint's outbound-number lookup for published agent version 5, then rerun the already-saved chained scenario. |
 | Reviewer-safe webhook payload | Attach, completed-event delivery, and removal all work. A second test used reserved fictional destination `+1 202-555-0100`; the call reached `failed` with empty transcript and recording fields, but DialNexa did not deliver the subscribed `call.failed` event. The temporary webhook was removed and Make's webhook list was verified empty. | Fix `call.failed` delivery and repeat the fictional-destination test, or obtain Make reviewer approval for the successful controlled `call.completed` payload. |
 
 ## Connector corrections discovered during testing

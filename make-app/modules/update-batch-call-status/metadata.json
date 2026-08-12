@@ -3,5 +3,6 @@
   "label": "Update a batch call status",
   "description": "Pauses, resumes, or cancels a DialNexa batch call.",
   "type": "action",
+  "actionCrud": "update",
   "connection": "dialnexaApiKey"
 }

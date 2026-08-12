@@ -1,6 +1,4 @@
 {
-  "statusCode": 201,
-  "message": "Leads uploaded successfully",
   "data": {
     "+12025550100": [
       "lead_abc123"

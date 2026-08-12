@@ -3,5 +3,6 @@
   "label": "Get a batch call",
   "description": "Returns call logs and progress for one DialNexa batch call.",
   "type": "action",
+  "actionCrud": "read",
   "connection": "dialnexaApiKey"
 }
