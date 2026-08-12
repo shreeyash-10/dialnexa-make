@@ -2,7 +2,7 @@
   "url": "/v1/agents",
   "method": "GET",
   "response": {
-    "iterate": "{{body.data.agents}}",
+    "iterate": "{{ifempty(body.data.agents, body.agents)}}",
     "output": "{{item}}",
     "limit": "{{parameters.limit}}"
   }

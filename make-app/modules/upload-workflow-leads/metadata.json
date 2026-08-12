@@ -3,5 +3,6 @@
   "label": "Upload workflow leads",
   "description": "Uploads a CSV or Excel file and enrolls its leads in a DialNexa workflow.",
   "type": "action",
+  "actionCrud": "create",
   "connection": "dialnexaApiKey"
 }

@@ -7,7 +7,7 @@
     "limit": 100
   },
   "response": {
-    "iterate": "{{body}}",
+    "iterate": "{{body.items}}",
     "output": "{{item}}",
     "limit": "{{parameters.limit}}"
   },
@@ -15,6 +15,6 @@
     "qs": {
       "page": "{{pagination.page}}"
     },
-    "condition": "{{length(body) == 100}}"
+    "condition": "{{length(body.items) == 100}}"
   }
 }

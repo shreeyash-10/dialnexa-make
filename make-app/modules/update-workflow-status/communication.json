@@ -6,6 +6,6 @@
     "action": "{{parameters.action}}"
   },
   "response": {
-    "output": "{{body}}"
+    "output": "{{body.data}}"
   }
 }

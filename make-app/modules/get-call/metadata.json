@@ -3,5 +3,6 @@
   "label": "Get a call",
   "description": "Returns a call with its current status, routing, transcript, and analysis fields.",
   "type": "action",
+  "actionCrud": "read",
   "connection": "dialnexaApiKey"
 }

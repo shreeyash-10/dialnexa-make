@@ -3,5 +3,6 @@
   "label": "Create a batch call",
   "description": "Uploads a CSV or Excel leads file and creates a billable outbound call batch.",
   "type": "action",
+  "actionCrud": "create",
   "connection": "dialnexaApiKey"
 }

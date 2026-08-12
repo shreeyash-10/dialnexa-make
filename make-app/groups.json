@@ -1,0 +1,46 @@
+[
+  {
+    "label": "Triggers",
+    "modules": [
+      "watchCallEvents"
+    ]
+  },
+  {
+    "label": "Agents",
+    "modules": [
+      "listAgents"
+    ]
+  },
+  {
+    "label": "Calls",
+    "modules": [
+      "searchCalls",
+      "getCall",
+      "createCall"
+    ]
+  },
+  {
+    "label": "Batch calls",
+    "modules": [
+      "listBatchCalls",
+      "getBatchCall",
+      "createBatchCall",
+      "updateBatchCallStatus"
+    ]
+  },
+  {
+    "label": "Workflows",
+    "modules": [
+      "listWorkflows",
+      "getWorkflow",
+      "uploadWorkflowLeads",
+      "updateWorkflowStatus"
+    ]
+  },
+  {
+    "label": "Other",
+    "modules": [
+      "makeAnApiCall"
+    ]
+  }
+]

@@ -8,7 +8,7 @@
       "{{parameters.event}}"
     ],
     "is_active": true,
-    "secret": "{{sha256(account.apiKey + ':' + webhook.id)}}"
+    "secret": "{{sha256(connection.apiKey + ':' + webhook.id)}}"
   },
   "response": {
     "data": {

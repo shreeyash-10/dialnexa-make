@@ -24,7 +24,7 @@
     "name": "fileName",
     "type": "filename",
     "label": "File name",
-    "help": "Use a CSV, XLSX, or XLS file no larger than 10 MB with a `phone_number` column.",
+    "help": "Use a CSV, XLSX, or XLS file no larger than 10 MB with `name` and `phone` columns.",
     "semantic": "file:name",
     "required": true
   },

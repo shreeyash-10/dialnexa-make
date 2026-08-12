@@ -5,9 +5,14 @@
     "label": "Call logs"
   },
   {
+    "name": "returnedCount",
+    "type": "number",
+    "label": "Returned call-log count"
+  },
+  {
     "name": "total",
     "type": "number",
-    "label": "Total"
+    "label": "Total call logs"
   },
   {
     "name": "page",
