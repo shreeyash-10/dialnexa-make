@@ -213,6 +213,33 @@ if (workflowStatus?.method !== "PATCH" || workflowStatus?.body?.action !== "{{pa
   errors.push("updateWorkflowStatus must PATCH the requested action.");
 }
 
+const getBatchParameters = readJson(path.join(appRoot, "modules/get-batch-call/mappable-parameters.json"));
+const getBatchCommunication = readJson(path.join(appRoot, "modules/get-batch-call/communication.json"));
+if (getBatchParameters?.some((parameter) => ["page", "pageSize", "limit"].includes(parameter.name))) {
+  errors.push("getBatchCall must not expose API pagination controls to users.");
+}
+if (!getBatchCommunication?.pagination?.qs?.page || !getBatchCommunication?.pagination?.condition) {
+  errors.push("getBatchCall must paginate call logs internally.");
+}
+
+const listAgentsRpc = readJson(path.join(appRoot, "rpcs/list-agents/communication.json"));
+const listWorkflowsRpc = readJson(path.join(appRoot, "rpcs/list-workflows/communication.json"));
+for (const [name, rpc] of [["listAgents", listAgentsRpc], ["listWorkflows", listWorkflowsRpc]]) {
+  const limit = Number(rpc?.response?.limit);
+  if (limit < 300 || limit > 500) {
+    errors.push(`${name} RPC response.limit must be between 300 and 500.`);
+  }
+}
+if (!listWorkflowsRpc?.pagination?.qs?.page || !listWorkflowsRpc?.pagination?.condition) {
+  errors.push("listWorkflows RPC must paginate workflow choices internally.");
+}
+
+const createCallParameters = readJson(path.join(appRoot, "modules/create-call/mappable-parameters.json"));
+const metadataParameter = createCallParameters?.find((parameter) => parameter.name === "metadata");
+if (metadataParameter?.required !== true || metadataParameter?.default !== "{}") {
+  errors.push("createCall metadata must remain required with a valid empty-object default.");
+}
+
 const webhookAttach = readJson(path.join(appRoot, "webhooks/call-events/attach.json"));
 if (!String(webhookAttach?.body?.secret ?? "").includes("connection.apiKey")) {
   errors.push("Call-events webhook secret must use connection.apiKey.");

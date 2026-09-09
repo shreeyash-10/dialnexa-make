@@ -39,7 +39,7 @@ Reviewer-safe write tests use only synthetic labels and destinations that DialNe
 | Create a call | DialNexa – Reviewer Safe Create Call | `6847899` | Successful creation using a published DialNexa test agent, a reserved fictional destination, and synthetic metadata. |
 | Get a call | DialNexa – Reviewer Safe Get Call | `6848017` | Successful lookup of the fictional failed call; no transcript or recording was created. |
 | Create a batch call | DialNexa – Reviewer Safe Batch Immediate Cancel | `6848344` | Fresh successful two-record batch on 2026-08-12 using agent version 17, synthetic names, exact `name,phone` headers, E.164 DialNexa-controlled test destinations, and a future start; returned status `initiated`. |
-| Get a batch call | DialNexa – Reviewer Safe Get Batch | `6848387` | Fresh successful single bundle on 2026-08-07; returned count was 2 with page 1 and page size 20. |
+| Get a batch call | DialNexa – Reviewer Safe Get Batch | `6848387` | Fresh successful bundle on 2026-08-07; returned count was 2. The module now advances through API pages internally and no longer exposes Page or Page size inputs. |
 | Update a batch call status — pause | DialNexa – Reviewer Safe Batch Cancel | `6848479` | Fresh successful pause on 2026-08-07 for the disposable reviewer-safe batch. |
 | Update a batch call status — resume | DialNexa – Reviewer Safe Batch Cancel | `6848479` | Fresh successful resume on 2026-08-07 for the disposable reviewer-safe batch. |
 | Update a batch call status — cancel | DialNexa – Reviewer Safe Batch Cancel | `6848479` | Fresh successful cancel on 2026-08-12 for `batch_iJqLQM3TYSebgO`, before its scheduled start. |
@@ -64,8 +64,10 @@ Reviewer-safe write tests use only synthetic labels and destinations that DialNe
 
 ## Connector corrections discovered during testing
 
-- **Get a batch call:** DialNexa returns a root array. The action now wraps it in one Make bundle with `callLogs`, `returnedCount`, `page`, and `limit`.
-- **List workflows pagination:** added an advanced `API page size` parameter. A page size of 1 with limit 2 verified page advancement on 2026-08-07 while retaining a default of 100.
+- **Get a batch call:** removed the user-facing Page and Page size inputs. The action requests the API maximum of 200 call logs per page and advances through additional pages with Make's pagination directive.
+- **List workflows pagination:** both the public search module and workflow-picker RPC advance through `meta.currentPage`/`meta.totalPages`. The RPC requests 100 items per API page and allows Make to collect up to 500 choices.
+- **List agents:** DialNexa's API returns every agent in one response and does not accept Page or Limit query parameters. The module therefore does not invent pagination controls; its picker RPC accepts up to 500 returned choices.
+- **Create a call metadata:** DialNexa's `CreateCallRequest` schema requires `metadata`. The empty JSON object is a valid value, so the required field and `{}` default are intentional.
 - **Create a batch call:** confirmed the API expects `name` and `phone` CSV columns. A manually entered Make test buffer must use an evaluated expression with both arguments quoted: `{{toBinary("<base64>"; "base64")}}`. Earlier plain-text expressions uploaded the formula itself and caused `No valid phone numbers found in CSV`.
 - **Samples:** replaced realistic-looking phone numbers with reserved `+1 202-555-01xx` fictional numbers.
 

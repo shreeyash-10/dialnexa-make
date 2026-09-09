@@ -7,6 +7,6 @@
       "label": "{{ifempty(item.current_version.title, item.id)}}",
       "value": "{{item.id}}"
     },
-    "limit": 100
+    "limit": 500
   }
 }
