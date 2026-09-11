@@ -33,19 +33,5 @@
         "value": "unknown"
       }
     ]
-  },
-  {
-    "name": "page",
-    "type": "uinteger",
-    "label": "Page",
-    "default": 1,
-    "advanced": true
-  },
-  {
-    "name": "pageSize",
-    "type": "uinteger",
-    "label": "Page size",
-    "default": 20,
-    "advanced": true
   }
 ]

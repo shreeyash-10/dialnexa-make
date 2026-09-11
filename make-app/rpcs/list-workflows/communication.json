@@ -11,6 +11,12 @@
       "label": "{{ifempty(item.title, item.id)}}",
       "value": "{{item.id}}"
     },
-    "limit": 100
+    "limit": 500
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{body.meta.currentPage < body.meta.totalPages}}"
   }
 }

@@ -4,8 +4,8 @@
   "qs": {
     "status": "{{parameters.status}}",
     "sentiment": "{{parameters.sentiment}}",
-    "page": "{{parameters.page}}",
-    "limit": "{{parameters.pageSize}}"
+    "page": 1,
+    "limit": 200
   },
   "response": {
     "output": {
@@ -16,5 +16,11 @@
       "limit": "{{body.limit}}",
       "totalPages": "{{body.totalPages}}"
     }
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{body.page < body.totalPages}}"
   }
 }

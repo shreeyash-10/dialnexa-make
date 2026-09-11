@@ -5,7 +5,7 @@
 - Create a private app named **DialNexa** in Make's Custom Apps editor.
 - Use the official DialNexa logo and brand color.
 - Add the Base, connection, RPC, webhook, and module files in the order described in the repository README.
-- Keep every module hidden from public distribution while testing.
+- During development, keep unfinished modules hidden. Before review, make every release-ready module visible so reviewers and newly installed scenarios can select it.
 
 ## 2. Required credentials and safe test data
 
@@ -65,7 +65,7 @@ Create scenario E for errors:
 - Confirm the universal module cannot override the inherited Authorization header through its default configuration.
 - Resolve the webhook signature-verification item in the API surface audit with DialNexa security and Make QA.
 - Remove every temporary connection, module, RPC, or webhook component that should not become permanent.
-- Verify every intended public module is visible and every internal/test module is hidden.
+- Verify all 14 release modules are visible and no internal/test-only module is exposed.
 
 ## 5. Review submission package
 
