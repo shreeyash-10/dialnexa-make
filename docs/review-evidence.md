@@ -1,5 +1,20 @@
 # Make app review evidence
 
+## Live reviewer remediation — 2026-09-11
+
+The following changes were synchronized to DialNexa v1.0.0 in Make after the Apps DX review:
+
+- restored the complete `PATCH /v1/workflows/{id}/status` communication;
+- made all 14 release modules visible;
+- removed Page and Page size from **Get a batch call** and added internal pagination at 200 call logs per page;
+- raised both picker RPC limits to 500 and added pagination to **List workflows**;
+- confirmed from DialNexa's API contract that **List agents** returns the complete collection and accepts no pagination parameters;
+- replaced the single Other group with Triggers, Agents, Calls, Batch calls, Workflows, and Other;
+- flattened the **Create a batch call** input array;
+- retained required call metadata because `CreateCallRequest` requires it; `{}` is a valid empty value.
+
+Fresh scenario execution is pending a valid DialNexa test connection. The saved Make connection returned `401 Invalid API key` during the post-change RPC test on 2026-09-11. Do not send the final reviewer reply until the connection is refreshed and the execution links below are updated.
+
 ## Fresh curated rerun — 2026-08-12
 
 The API-key connection remained valid throughout this rerun: authenticated DialNexa requests returned HTTP 200. One saved scenario per module was used, and write tests were limited to controlled DialNexa destinations with future scheduling and immediate cancellation where applicable.
