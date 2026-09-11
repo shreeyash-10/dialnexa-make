@@ -44,7 +44,8 @@ Legend:
 
 - Calls return a root array with no pagination metadata and document a maximum page size of 200. The connector requests 200 and advances while the previous page is full.
 - Batch calls return a root array. A live authenticated check on 2026-08-06 confirmed the documented `items`/`total`/`page`/`limit` envelope is not present, so the connector paginates while the previous 100-item page is full.
-- Workflows return `data` plus `meta.currentPage` and `meta.totalPages`.
+- Workflows return their records in `data.data`, with pagination metadata in
+  `data.meta.currentPage` and `data.meta.totalPages`.
 - Agents return their complete collection at `data.agents` with no server pagination and accept no Page or Limit query parameters. The search module applies the user's Make-side result limit, while the picker RPC allows up to 500 choices.
 - Batch-call detail returns paginated call logs. The connector fixes the API page size at 200, advances pages internally, and does not expose API pagination controls to scenario builders.
 
