@@ -197,8 +197,8 @@ if (groups) {
 const regressionChecks = [
   ["modules/list-agents/communication.json", "response.iterate", "{{ifempty(body.data.agents, body.agents)}}"],
   ["rpcs/list-agents/communication.json", "response.iterate", "{{ifempty(body.data.agents, body.agents)}}"],
-  ["modules/list-workflows/communication.json", "response.iterate", "{{body.data}}"],
-  ["rpcs/list-workflows/communication.json", "response.iterate", "{{body.data}}"],
+  ["modules/list-workflows/communication.json", "response.iterate", "{{body.data.data}}"],
+  ["rpcs/list-workflows/communication.json", "response.iterate", "{{body.data.data}}"],
   ["modules/list-batch-calls/communication.json", "response.iterate", "{{body.items}}"],
   ["modules/get-workflow/communication.json", "response.output", "{{body.data}}"],
   ["modules/update-workflow-status/communication.json", "response.output", "{{body.data}}"]

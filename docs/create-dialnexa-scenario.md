@@ -66,14 +66,15 @@ When manually mapping base64 test data in Make, convert it to a buffer using an 
 
 ## Successful Create Batch evidence
 
-The following reviewer-safe scenario contains a fresh successful two-record Create Batch execution from 2026-08-12:
+The following reviewer-safe scenario contains a fresh successful two-record Create Batch execution from 2026-09-12:
 
 - [DialNexa Create Batch scenario](https://eu1.make.com/2283008/scenarios/6848344/edit)
-- Agent `agent_qzXtznGkgyvPaE`, published version 17
-- Batch `batch_iJqLQM3TYSebgO`, status `initiated`, two records
-- The batch was cancelled successfully before its scheduled start through the reviewer-safe Update Batch scenario.
+- Agent `agent_qzXtznGkgyvPaE`, published version 20
+- Batch `batch_w6pam3j3EBzATP`, status `initiated`, two records
+- The batch was cancelled successfully in the same Make execution before its scheduled start.
+- [Fresh successful execution](https://eu1.make.com/2283008/scenarios/6848344/logs/a9f5ce5cdc8342e7a8b276a6b13af0b7)
 
-Version 18 of the same agent and versions 4/5 of the older test agent did not have usable batch-origination assignments. Version 17 is the verified routing configuration for review evidence.
+Version 20 is the currently verified routing configuration for review evidence.
 
 ## If DialNexa does not appear
 

@@ -1,5 +1,32 @@
 # Make app review evidence
 
+## Final live rerun — 2026-09-11/12
+
+The saved DialNexa connection was refreshed and verified. The following executions were run against the remediated live Make app. Test labels are synthetic. Call tests use a reserved fictional destination; batch tests use two DialNexa-controlled test destinations because the batch endpoint validates dialable numbers. The batch response exposes only DialNexa's own outbound number, not a customer number.
+
+| Module or check | Result | Execution |
+| --- | --- | --- |
+| List agents | Success; bounded Make output from the API's complete collection. | [Open execution](https://eu1.make.com/2283008/scenarios/6847236/logs/a4099182a968489cb4e5216fe4d65285) |
+| List batch calls | Success. | [Open execution](https://eu1.make.com/2283008/scenarios/6848688/logs/20b0881079444293b5f22495aeb44874) |
+| List workflows | Success; API page size 1 and Make result limit 2 returned two bundles, proving pagination. | [Open execution](https://eu1.make.com/2283008/scenarios/6846738/logs/51f71b6c25c0443db6de8d92bcc6fa28) |
+| Search calls | Success; one synthetic failed call, with no transcript or recording. | [Open execution](https://eu1.make.com/2283008/scenarios/6848677/logs/bd90191412e6447fbd11eb1316e99a9f) |
+| Create a call | Success with published agent version 20, a reserved fictional destination, and synthetic metadata. | [Open execution](https://eu1.make.com/2283008/scenarios/6847899/logs/be4ac345b9974e1692a2a5b13381ba9a) |
+| Get a call | Success; fictional failed call with empty transcript and recording fields. | [Open execution](https://eu1.make.com/2283008/scenarios/6848017/logs/aa0775bf570444d297a843cdfd7573cf) |
+| Create a batch call | Success; two-row `name,phone` CSV, published agent version 20, and a future start. Returned `batch_w6pam3j3EBzATP`. | [Open execution](https://eu1.make.com/2283008/scenarios/6848344/logs/a9f5ce5cdc8342e7a8b276a6b13af0b7) |
+| Get a batch call | Success against the freshly cancelled batch. Input contains only Batch call ID; Page and Page size are no longer exposed. | [Open execution](https://eu1.make.com/2283008/scenarios/6848387/logs/6d5f40ee41d242a3be346221f4b6f89a) |
+| Update a batch call status — Pause | Success on a future-scheduled batch. | [Open execution](https://eu1.make.com/2283008/scenarios/6848344/logs/0d10f9843d8f46e09ae42b61402a36fa) |
+| Update a batch call status — Resume | Success on the same batch. | [Open execution](https://eu1.make.com/2283008/scenarios/6848479/logs/2049d86755ba4fa39014c81d0f33530c) |
+| Update a batch call status — Cancel | Success in the same execution as the final future-scheduled Create Batch test. | [Open execution](https://eu1.make.com/2283008/scenarios/6848344/logs/a9f5ce5cdc8342e7a8b276a6b13af0b7) |
+| Get a workflow | Success against synthetic `Test workflow`. | [Open execution](https://eu1.make.com/2283008/scenarios/6847775/logs/e22f74ef8b1f423db997be235debfac8) |
+| Update a workflow status | Success; resumed and then paused the disposable workflow. | [Open execution](https://eu1.make.com/2283008/scenarios/6848511/logs/8ec38b92db0d405f8950be4226b24ad2) |
+| Upload workflow leads | Success; uploaded one fictional lead to the disposable workflow, HTTP 201. | [Open execution](https://eu1.make.com/2283008/scenarios/6848549/logs/09f7299948ca4f20aade6d4182b5f22b) |
+| Make an API call | Success; compact `GET` of the synthetic workflow, HTTP 200 and 1.3 KB. | [Open execution](https://eu1.make.com/2283008/scenarios/6848653/logs/c81e835625fb4be0830999732530c215) |
+| Deliberate error handling | Expected clean 404: `Workflow with ID make_review_missing not found`. | [Open execution](https://eu1.make.com/2283008/scenarios/6847838/logs/e9ee7115a61b45c58c7026eb2c57c81c) |
+
+### Webhook result
+
+Webhook creation/attachment succeeded for a new `call.failed` subscription. A correctly timed reserved-number failure was generated while Make was listening, but DialNexa did not deliver the event within Make's listening window. This is the sole remaining API-side blocker to a new reviewer-safe Watch execution. A prior controlled `call.completed` delivery proves the trigger's attach, receive, and detach path, but that execution contains call content and is intentionally not included in the safe table above.
+
 ## Live reviewer remediation — 2026-09-11
 
 The following changes were synchronized to DialNexa v1.0.0 in Make after the Apps DX review:
@@ -13,7 +40,7 @@ The following changes were synchronized to DialNexa v1.0.0 in Make after the App
 - flattened the **Create a batch call** input array;
 - retained required call metadata because `CreateCallRequest` requires it; `{}` is a valid empty value.
 
-Fresh scenario execution is pending a valid DialNexa test connection. The saved Make connection returned `401 Invalid API key` during the post-change RPC test on 2026-09-11. Do not send the final reviewer reply until the connection is refreshed and the execution links below are updated.
+The saved DialNexa test connection was refreshed and verified on 2026-09-11. The final execution links are recorded above.
 
 ## Fresh curated rerun — 2026-08-12
 
